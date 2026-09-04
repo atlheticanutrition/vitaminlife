@@ -29,12 +29,25 @@
      então isso costuma bastar — não precisa @font-face de novo, mas
      deixei aqui por segurança/portabilidade).
   4) Cole todo o conteúdo deste arquivo substituindo o pages/home.html.
+
+  Os caminhos usam a função {{ asset('img/arquivo.png') }}, que é a
+  forma oficialmente documentada pela Tray para referenciar arquivos
+  do tema (substitui em tempo real pelo caminho absoluto do CDN da
+  loja). Se alguma imagem/fonte não carregar depois de colar:
+  - confira se o NOME e a EXTENSÃO do arquivo que você subiu batem
+    exatamente com o que está em asset('...') aqui embaixo
+    (maiúscula/minúscula importa);
+  - confira no navegador (F12 > aba Network/Rede, recarregando a
+    página) qual URL exata deu erro 404 — isso mostra se o arquivo
+    foi parar em outra pasta;
+  - confirme se o arquivo realmente está dentro de "img" (ou
+    "css/fonts") e não em uma subpasta como "img/settings".
 -->
 <style>
   @font-face{
     font-family: 'Manrope';
-    src: url('{{ themePath }}css/fonts/Manrope-Variable.woff2') format('woff2-variations'),
-         url('{{ themePath }}css/fonts/Manrope-Variable.woff2') format('woff2');
+    src: url('{{ asset("css/fonts/Manrope-Variable.woff2") }}') format('woff2-variations'),
+         url('{{ asset("css/fonts/Manrope-Variable.woff2") }}') format('woff2');
     font-weight: 200 800;
     font-style: normal;
     font-display: swap;
@@ -42,7 +55,7 @@
 
   @font-face{
     font-family: 'Inter';
-    src: url('{{ themePath }}css/fonts/Inter-Regular.woff2') format('woff2');
+    src: url('{{ asset("css/fonts/Inter-Regular.woff2") }}') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -64,7 +77,7 @@
     justify-content: space-between;
     padding: clamp(20px, 11.11vh, 90px) clamp(24px, 9.72vw, 140px);
     background-color: #06342f;
-    background-image: url('{{ themePath }}img/manutencao-bg.jpg');
+    background-image: url('{{ asset("img/manutencao-bg.jpg") }}');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -198,7 +211,7 @@
 
 <div class="vl-manutencao">
   <div class="vl-logo-container">
-    <img class="vl-logo" src="{{ themePath }}img/logo-vitaminlife-branca.svg" alt="Vitaminlife — Sua vida em equilíbrio">
+    <img class="vl-logo" src="{{ asset('img/logo-vitaminlife-branca.svg') }}" alt="Vitaminlife — Sua vida em equilíbrio">
   </div>
 
   <div class="vl-message">
