@@ -22,12 +22,10 @@
      (formatos JPG/PNG/SVG normalmente aceitos pelo gerenciador de
      arquivos da Tray; se não houver opção de criar subpasta, pode
      subir direto em "img/" mesmo, só ajuste os caminhos abaixo).
-  3) Suba os 2 arquivos de fonte dentro de "css/fonts/":
-       - css/fonts/Manrope-Variable.woff2
-       - css/fonts/Inter-Regular.woff2
-     (o tema já carrega fontes de dentro dessa pasta automaticamente,
-     então isso costuma bastar — não precisa @font-face de novo, mas
-     deixei aqui por segurança/portabilidade).
+  3) Suba os 2 arquivos de fonte direto dentro de "css/" (sem subpasta,
+     pois este tema não tem uma pasta css/fonts/ pronta):
+       - css/Manrope-Variable.woff2
+       - css/Inter-Regular.woff2
   4) Cole todo o conteúdo deste arquivo substituindo o pages/home.html.
 
   Os caminhos usam a função {{ asset('img/arquivo.png') }}, que é a
@@ -40,14 +38,14 @@
   - confira no navegador (F12 > aba Network/Rede, recarregando a
     página) qual URL exata deu erro 404 — isso mostra se o arquivo
     foi parar em outra pasta;
-  - confirme se o arquivo realmente está dentro de "img" (ou
-    "css/fonts") e não em uma subpasta como "img/settings".
+  - confirme se o arquivo realmente está dentro de "img" (ou "css")
+    e não em uma subpasta como "img/settings".
 -->
 <style>
   @font-face{
     font-family: 'Manrope';
-    src: url('{{ asset("css/fonts/Manrope-Variable.woff2") }}') format('woff2-variations'),
-         url('{{ asset("css/fonts/Manrope-Variable.woff2") }}') format('woff2');
+    src: url('{{ asset("css/Manrope-Variable.woff2") }}') format('woff2-variations'),
+         url('{{ asset("css/Manrope-Variable.woff2") }}') format('woff2');
     font-weight: 200 800;
     font-style: normal;
     font-display: swap;
@@ -55,7 +53,7 @@
 
   @font-face{
     font-family: 'Inter';
-    src: url('{{ asset("css/fonts/Inter-Regular.woff2") }}') format('woff2');
+    src: url('{{ asset("css/Inter-Regular.woff2") }}') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
